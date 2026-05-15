@@ -124,7 +124,24 @@
     });
   }
 
+  function initHeroVideo() {
+    var video = document.querySelector(".hero__video");
+    if (!video) return;
+
+    var tryPlay = function () {
+      if (video.paused) video.play().catch(function () {});
+    };
+
+    video.addEventListener("canplay", tryPlay);
+    document.addEventListener("visibilitychange", function () {
+      if (!document.hidden) tryPlay();
+    });
+
+    tryPlay();
+  }
+
   initNavScroll();
   initDrawer();
   initReveal();
+  initHeroVideo();
 })();
