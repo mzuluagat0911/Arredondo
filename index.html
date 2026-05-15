@@ -6,7 +6,7 @@
     <title>Arredondo — Mi Segunda Casa | Belgrano, Buenos Aires</title>
     <meta
       name="description"
-      content="Arredondo: una casona, tres espacios en Virrey Arredondo, Belgrano. Hamburguesería, cantina y café. Reservá por WhatsApp o pedí delivery."
+      content="Arredondo y Le Blé en Virrey Arredondo, Belgrano: hamburguesería con deck y café con panadería. Reservá por WhatsApp o pedí delivery."
     />
     <link rel="canonical" href="https://www.arredondo.ba/" />
     <!-- Open Graph -->
@@ -15,7 +15,7 @@
     <meta property="og:title" content="Arredondo — Mi Segunda Casa" />
     <meta
       property="og:description"
-      content="Una casona, tres espacios, una cuadra de Belgrano. Hamburguesería, cantina y café en Virrey Arredondo."
+      content="Dos espacios en la misma cuadra de Belgrano: Arredondo y Le Blé sobre Virrey Arredondo."
     />
     <meta property="og:image" content="https://www.arredondo.ba/assets/logo.jpg" />
     <meta property="og:url" content="https://www.arredondo.ba/" />
@@ -23,7 +23,7 @@
     <meta name="twitter:title" content="Arredondo — Mi Segunda Casa" />
     <meta
       name="twitter:description"
-      content="Una casona, tres espacios, una cuadra de Belgrano."
+      content="Arredondo y Le Blé en la cuadra de Virrey Arredondo, Belgrano."
     />
     <meta name="twitter:image" content="https://www.arredondo.ba/assets/logo.jpg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -35,8 +35,8 @@
     <link rel="icon" href="assets/logo.jpg" type="image/jpeg" />
     <link rel="apple-touch-icon" href="assets/logo.jpg" />
     <link rel="stylesheet" href="styles/reset.css" />
-    <link rel="stylesheet" href="styles/main.css" />
-    <!-- Schema.org: grupo gastronómico con tres locales (Restaurant) -->
+    <link rel="stylesheet" href="styles/main.css?v=3" />
+    <!-- Schema.org: dos locales (Restaurant) -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -74,34 +74,6 @@
               "@type": "AggregateRating",
               "ratingValue": "4.3",
               "reviewCount": "6891"
-            },
-            "sameAs": ["https://www.instagram.com/arredondo.ba/"]
-          },
-          {
-            "@type": "Restaurant",
-            "@id": "https://www.arredondo.ba/#cantina-arredondo",
-            "name": "Cantina Arredondo",
-            "description": "Cantina en planta alta. Pastas caseras y vinos. Se aceptan reservas.",
-            "url": "https://www.arredondo.ba/#espacios",
-            "telephone": "+54-9-11-6056-5433",
-            "image": "https://www.arredondo.ba/assets/logo.jpg",
-            "address": {
-              "@type": "PostalAddress",
-              "streetAddress": "Virrey Arredondo 2560",
-              "addressLocality": "Buenos Aires",
-              "addressRegion": "CABA",
-              "addressCountry": "AR"
-            },
-            "geo": {
-              "@type": "GeoCoordinates",
-              "latitude": -34.5687292,
-              "longitude": -58.4520742
-            },
-            "openingHoursSpecification": {
-              "@type": "OpeningHoursSpecification",
-              "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-              "opens": "19:00",
-              "closes": "01:00"
             },
             "sameAs": ["https://www.instagram.com/arredondo.ba/"]
           },
@@ -197,6 +169,14 @@
       <!-- Sección 1: Hero a pantalla completa -->
       <section class="hero" id="hero" aria-labelledby="hero-titulo">
         <div class="hero__bg" aria-hidden="true">
+          <img
+            class="hero__poster"
+            src="assets/hero-fachada.png"
+            alt=""
+            width="1266"
+            height="1582"
+            decoding="async"
+          />
           <video
             class="hero__video"
             autoplay
@@ -205,15 +185,14 @@
             playsinline
             preload="auto"
             poster="assets/hero-fachada.png"
-          >
-            <source src="assets/hero-video.mp4" type="video/mp4" />
-          </video>
+            src="assets/hero-video.mp4?v=2"
+          ></video>
         </div>
         <div class="hero__overlay" aria-hidden="true"></div>
         <div class="hero__content">
           <p class="hero__eyebrow">Belgrano · desde la casona</p>
           <h1 class="hero__title" id="hero-titulo">Mi Segunda Casa</h1>
-          <p class="hero__subtitle">Una casona, tres espacios, una cuadra de Belgrano.</p>
+          <p class="hero__subtitle">La casona de siempre y el café en la esquina, en la misma cuadra de Belgrano.</p>
           <div class="hero__ctas">
             <a
               class="btn btn--primary"
@@ -240,10 +219,9 @@
             <p class="eyebrow">La casa</p>
             <h2 id="casa-titulo">Empezamos con una hamburguesa y una casona vieja.</h2>
             <p>
-              Sobre la calle Virrey Arredondo, en Belgrano, una casona antigua se convirtió en tres lugares distintos
-              pensados para tres momentos del día. Desayuno en la esquina, almuerzo en el deck, cena pausada en la
-              planta alta. Cambia el plato, cambia la luz, cambia la música. Lo que no cambia es el lugar: tu segunda
-              casa, a una cuadra de la otra.
+              Sobre la calle Virrey Arredondo, en Belgrano, la casa se vive en dos pasos: el local de siempre con el deck
+              y las milanesas, y Le Blé en la esquina para el café, el pan recién horneado y arrancar el día. Cambia el
+              plato, cambia la luz, cambia la música. Lo que no cambia es el barrio y la sensación de volver a tu segunda casa.
             </p>
           </div>
           <div class="casa-grid__media reveal">
@@ -258,22 +236,22 @@
         </div>
       </section>
 
-      <!-- Sección 3: Cards de los tres espacios -->
+      <!-- Sección 3: Dos locales -->
       <section class="section section--espacios" id="espacios" aria-labelledby="espacios-titulo">
         <div class="container">
           <header class="section-header reveal">
-            <p class="eyebrow">Los locales</p>
-            <h2 id="espacios-titulo">Arredondo, Cantina y Le Blé</h2>
+            <p class="eyebrow">Dos locales</p>
+            <h2 id="espacios-titulo">Arredondo y Le Blé</h2>
           </header>
           <div class="cards-espacios">
             <article class="card-espacio reveal">
               <div class="card-espacio__visual">
                 <span class="card-espacio__num" aria-hidden="true">01</span>
                 <img
-                  src="assets/espacio-cantina.png"
-                  alt="Hamburguesa Arredondo, doble carne con cheddar y Blue Moon."
-                  width="1232"
-                  height="730"
+                  src="assets/galeria-01.png"
+                  alt="Hamburguesa Arredondo con papas en el salón principal, Belgrano."
+                  width="1102"
+                  height="1278"
                   loading="lazy"
                 />
               </div>
@@ -306,46 +284,10 @@
               <div class="card-espacio__visual">
                 <span class="card-espacio__num" aria-hidden="true">02</span>
                 <img
-                  src="assets/pastas.png"
-                  alt="Cantina Arredondo, planta alta de la casona en Belgrano. Vinos y ambiente íntimo."
-                  width="1232"
-                  height="1540"
-                  loading="lazy"
-                />
-              </div>
-              <div class="card-espacio__body">
-                <p class="card-espacio__tipo">Cantina</p>
-                <h3>Cantina Arredondo</h3>
-                <p class="card-espacio__desc">
-                  Arriba, más íntimo. Pastas caseras, recetas de antaño y vinos para quedarse hasta tarde. Acá sí podés
-                  reservar.
-                </p>
-                <div class="card-espacio__rule" aria-hidden="true"></div>
-                <p class="card-espacio__meta">
-                  Virrey Arredondo 2560 (planta alta de la casona)<br />
-                  Lun a sáb 19:00 – 01:00, dom cerrado<br />
-                  Ambiente íntimo, reservas sí.
-                </p>
-                <a
-                  class="btn btn--card-cta"
-                  href="https://wa.me/5491160565433?text=Hola%20Cantina%20Arredondo%2C%20quer%C3%ADa%20reservar..."
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-                  Reservar mesa
-                </a>
-                <a class="btn btn--maps" href="https://maps.google.com/?q=Virrey+Arredondo+2560+Buenos+Aires" target="_blank" rel="noopener noreferrer">Ver en Maps ↗</a>
-              </div>
-            </article>
-            <article class="card-espacio reveal">
-              <div class="card-espacio__visual">
-                <span class="card-espacio__num" aria-hidden="true">03</span>
-                <img
                   src="assets/cafe.png"
-                  alt="Le Blé Arredondo, café de especialidad y boulangerie en Belgrano."
-                  width="984"
-                  height="1418"
+                  alt="Le Blé Arredondo: café de especialidad y boulangerie en Belgrano."
+                  width="1118"
+                  height="1544"
                   loading="lazy"
                 />
               </div>
@@ -400,7 +342,7 @@
             </li>
             <li class="menu-item reveal">
               <h3>Bondiola braseada</h3>
-              <p>Cocción lenta, sabor de cantina.</p>
+              <p>Cocción lenta, sabor intenso.</p>
             </li>
             <li class="menu-item reveal">
               <h3>Buñuelos de espinaca con alioli</h3>
@@ -441,10 +383,10 @@
         <div class="galeria-grid">
           <div class="galeria-grid__item reveal">
             <img
-              src="assets/galeria-01.png"
-              alt="Arredondo: hamburguesa con papas fritas."
-              width="1102"
-              height="1278"
+              src="assets/galeria-02.png"
+              alt="Arredondo: ambiente y mesas en el local."
+              width="1184"
+              height="1350"
               loading="lazy"
             />
           </div>
@@ -452,8 +394,8 @@
             <img
               src="assets/hero-fachada.png"
               alt="Arredondo: portón de entrada en Virrey Arredondo."
-              width="1212"
-              height="1548"
+              width="1266"
+              height="1582"
               loading="lazy"
             />
           </div>
@@ -470,8 +412,8 @@
             <img
               src="assets/espacio-arredondo.png"
               alt="Arredondo: perro en el deck exterior, pet-friendly."
-              width="984"
-              height="1418"
+              width="1224"
+              height="1598"
               loading="lazy"
             />
           </div>
@@ -574,6 +516,6 @@
       <p class="cookie-note">Este sitio no usa cookies de seguimiento. Los enlaces externos aplican sus propias políticas.</p>
     </footer>
 
-    <script src="scripts/main.js" defer></script>
+    <script src="scripts/main.js?v=2" defer></script>
   </body>
 </html>

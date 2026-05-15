@@ -128,18 +128,31 @@
     var video = document.querySelector(".hero__video");
     if (!video) return;
 
+    video.muted = true;
+    video.setAttribute("muted", "");
+    video.playsInline = true;
+
+    var markPlaying = function () {
+      video.classList.add("is-playing");
+    };
+
     var tryPlay = function () {
       if (video.paused) {
         var p = video.play();
-        if (p && p.catch) p.catch(function () {});
+        if (p && p.then) {
+          p.then(markPlaying).catch(function () {});
+        }
+      } else {
+        markPlaying();
       }
     };
+
+    video.addEventListener("playing", markPlaying);
 
     ["canplay", "loadedmetadata", "loadeddata"].forEach(function (evt) {
       video.addEventListener(evt, tryPlay);
     });
 
-    // Mobile browsers suspend the load early — if nothing decoded yet, restart
     video.addEventListener("suspend", function () {
       if (video.readyState === 0) {
         video.load();
@@ -147,11 +160,14 @@
       }
     });
 
+    video.addEventListener("error", function () {
+      video.classList.remove("is-playing");
+    });
+
     document.addEventListener("visibilitychange", function () {
       if (!document.hidden) tryPlay();
     });
 
-    // Fallback: retry a few times in case the first call fires too early
     tryPlay();
     window.setTimeout(tryPlay, 500);
     window.setTimeout(tryPlay, 1500);

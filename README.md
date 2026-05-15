@@ -4,19 +4,24 @@ Single-page estática para el grupo gastronómico **Arredondo** (Belgrano / Cole
 
 ## Cómo correr el proyecto localmente
 
-No hace falta build ni dependencias.
+No hace falta build ni dependencias de npm.
 
-1. Abrí la carpeta del proyecto.
-2. Serví los archivos con un servidor estático para evitar problemas de CORS con fuentes o iframes (opcional pero recomendado):
+**Recomendado** (soporta range requests para el video del hero en mobile):
 
 ```bash
 cd /ruta/al/proyecto
+node server.js
+```
+
+Abrí **http://localhost:3031**
+
+**Alternativa** (sin video optimizado en algunos móviles):
+
+```bash
 python3 -m http.server 8080
 ```
 
-3. En el navegador: `http://localhost:8080`
-
-También podés abrir `index.html` directamente; el embed de Maps y las fuentes de Google suelen funcionar igual en la mayoría de los entornos.
+Abrí `http://localhost:8080`
 
 ## Variables y textos a reemplazar cuando lleguen datos finales del cliente
 
@@ -27,7 +32,7 @@ También podés abrir `index.html` directamente; el embed de Maps y las fuentes 
 - **Carta PDF / Drive**: carpeta de la carta en Google Drive.
 - **Copyright**: año en el footer (`© 2026` o el que corresponda).
 - **Crédito agencia**: línea “Picante — pimenton.io” si el slug o la URL cambian.
-- **Horarios de Cantina**: el sitio usa los del brief de trabajo (“lun a sáb 19:00 – 01:00, dom cerrado”). Si el cliente confirma otro esquema (p. ej. viernes distinto), actualizá cards, sección Llegar y `openingHoursSpecification` en el JSON-LD.
+- **Horarios de Le Blé**: en la card y en el JSON-LD (`openingHoursSpecification`). Actualizar si cambian.
 - **Schema `aggregateRating`**: valores tomados del brief (Google). Actualizar si cambian en Maps.
 - **Linktree / YouTube**: el footer enlaza a Linktree como hub (“YouTube y más”). Cuando tengan URL directa de YouTube, podés reemplazar o duplicar el enlace.
 
@@ -38,13 +43,15 @@ Las capturas de Instagram se renombraron a archivos sin espacios raros. `index.h
 | Archivo | Uso en la página |
 | --- | --- |
 | `logo.jpg` | Logo oficial: barra de navegación, pie de página, favicon; también referenciado en OG/Twitter y JSON-LD (URL absoluta al publicar). |
-| `hero-fachada.png` | Fondo del hero |
-| `espacio-arredondo.png` | Card espacio 01 |
-| `espacio-cantina.png` | Card espacio 02 |
-| `espacio-leble.png` | Card espacio 03 + **6.ª foto de la galería** (temporal) |
-| `galeria-01.png` … `galeria-04.png` | Primeras cuatro celdas de “La cuadra” |
-
-Si sumás **`galeria-05.png`** y **`galeria-06.png`**, pedí que se actualice el HTML para que las dos últimas celdas de la galería dejen de repetir `casa` / `Le Blé`.
+| `hero-fachada.png` | Poster del hero + celda de galería |
+| `hero-video.mp4` | Video de fondo del hero (usar `node server.js` para reproducir bien) |
+| `galeria-01.png` | Card espacio — Arredondo (hamburguesa) |
+| `galeria-02.png` | Galería — primera celda |
+| `galeria-03.png`, `galeria-04.png` | Galería “La cuadra” |
+| `cafe.png` | Card 02 — Le Blé |
+| `pastas.png` | (Opcional) no se usa en la landing |
+| `espacio-arredondo.png` | Sección “La casa” + galería (ambiente deck) |
+| `casa.png` | Galería “La cuadra” |
 
 Reemplazá cualquier archivo conservando el mismo nombre si querés actualizar la foto sin tocar código.
 
@@ -71,9 +78,10 @@ Reemplazá el `src` del iframe en la sección **Cómo llegar** de `index.html`.
 
 ```
 /index.html
+/server.js
 /styles/reset.css
 /styles/main.css
 /scripts/main.js
-/assets/     (fotos del cliente, ver tabla arriba)
+/assets/     (fotos y video, ver tabla arriba)
 /README.md
 ```
