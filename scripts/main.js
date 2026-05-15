@@ -129,15 +129,32 @@
     if (!video) return;
 
     var tryPlay = function () {
-      if (video.paused) video.play().catch(function () {});
+      if (video.paused) {
+        var p = video.play();
+        if (p && p.catch) p.catch(function () {});
+      }
     };
 
-    video.addEventListener("canplay", tryPlay);
+    ["canplay", "loadedmetadata", "loadeddata"].forEach(function (evt) {
+      video.addEventListener(evt, tryPlay);
+    });
+
+    // Mobile browsers suspend the load early — if nothing decoded yet, restart
+    video.addEventListener("suspend", function () {
+      if (video.readyState === 0) {
+        video.load();
+        tryPlay();
+      }
+    });
+
     document.addEventListener("visibilitychange", function () {
       if (!document.hidden) tryPlay();
     });
 
+    // Fallback: retry a few times in case the first call fires too early
     tryPlay();
+    window.setTimeout(tryPlay, 500);
+    window.setTimeout(tryPlay, 1500);
   }
 
   initNavScroll();
