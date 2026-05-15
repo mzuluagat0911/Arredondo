@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "arredondo",
+      "runtimeExecutable": "/opt/homebrew/opt/node@22/bin/node",
+      "runtimeArgs": ["/Users/mateozuluagatoledo/Downloads/Arredondo/server.js"],
+      "port": 3031
+    }
+  ]
+}
