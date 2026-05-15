@@ -764,174 +764,103 @@ h3 {
 .section--galeria {
   background: var(--negro-cafe);
   color: var(--crema);
+  padding-bottom: 0;
 }
 
 .section--galeria .section-header h2 {
   color: var(--crema);
 }
 
+/* Galería full-width — mobile: 2 columnas cuadradas */
 .galeria-grid {
   display: grid;
-  gap: 0.75rem;
-  grid-template-columns: repeat(2, 1fr);
-  grid-auto-rows: 140px;
-}
-
-@media (min-width: 48rem) {
-  .galeria-grid {
-    grid-template-columns: repeat(3, 1fr);
-    grid-auto-rows: 180px;
-    gap: 1rem;
-  }
+  grid-template-columns: 1fr 1fr;
+  gap: 3px;
+  margin-top: 2.5rem;
 }
 
 .galeria-grid__item {
   overflow: hidden;
-  border-radius: 3px;
+  aspect-ratio: 1 / 1;
+}
+
+/* Mobile: primera foto ocupa todo el ancho en 16:9 */
+.galeria-grid__item:nth-child(1) {
+  grid-column: 1 / 3;
+  aspect-ratio: 16 / 9;
+}
+
+/* Desktop: 3 columnas full-width, portrait */
+@media (min-width: 48rem) {
+  .galeria-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4px;
+  }
+
+  .galeria-grid__item,
+  .galeria-grid__item:nth-child(1) {
+    grid-column: unset;
+    aspect-ratio: 4 / 5;
+  }
 }
 
 .galeria-grid__item img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center top;
+  display: block;
+  transition: transform 0.5s var(--ease-out);
 }
 
-.galeria-grid__item--tall {
-  grid-row: span 2;
+.galeria-grid__item:hover img {
+  transform: scale(1.04);
 }
 
-.galeria-grid__item--wide {
-  grid-column: span 2;
+/* Fotos donde el sujeto está en el centro de la imagen */
+.galeria-grid__item:nth-child(4) img,
+.galeria-grid__item:nth-child(5) img {
+  object-position: center 35%;
 }
 
-@media (min-width: 48rem) {
-  .galeria-grid__item--wide {
-    grid-column: span 1;
-  }
-}
-
-/* ——— Cómo llegar ——— */
-.section--llegar {
-  background: var(--negro-cafe);
-  color: var(--crema);
-  padding-block: 6rem;
+/* ——— Video strip (Le Blé) ——— */
+.section--video-strip {
+  position: relative;
+  height: 65vh;
+  min-height: 400px;
   overflow: hidden;
 }
 
-@media (min-width: 64rem) {
-  .section--llegar {
-    padding-block: 9rem;
-  }
+.video-strip__video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 20%;
 }
 
-.section--llegar .section-header {
-  margin-bottom: 5rem;
-  border-bottom: 1px solid rgba(232, 220, 196, 0.1);
-  padding-bottom: 3rem;
-}
-
-.section--llegar .section-header h2 {
-  color: var(--crema);
-  font-size: clamp(2rem, 4vw, 3.5rem);
-}
-
-.section--llegar .eyebrow {
-  color: var(--dorado);
-}
-
-.llegar-grid {
-  display: grid;
-  gap: 0;
-  grid-template-columns: 1fr;
-}
-
-@media (min-width: 48rem) {
-  .llegar-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-.llegar-card {
-  padding: 2.5rem 0;
-  border-bottom: 1px solid rgba(232, 220, 196, 0.1);
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-}
-
-@media (min-width: 48rem) {
-  .llegar-card {
-    padding: 0 2.5rem 0 0;
-    border-bottom: none;
-    border-right: 1px solid rgba(232, 220, 196, 0.1);
-  }
-
-  .llegar-card:last-child {
-    padding-right: 0;
-    border-right: none;
-    padding-left: 2.5rem;
-  }
-
-  .llegar-card:not(:first-child):not(:last-child) {
-    padding-left: 2.5rem;
-  }
-}
-
-.llegar-card__num {
-  font-family: var(--font-display);
-  font-size: clamp(4rem, 7vw, 6rem);
-  font-weight: 200;
-  color: var(--dorado);
-  line-height: 1;
-  opacity: 0.25;
-  margin-bottom: 1.5rem;
-  font-style: italic;
-  letter-spacing: -0.02em;
-}
-
-.llegar-card__info {
-  flex: 1;
-  margin-bottom: 2rem;
-}
-
-.llegar-card h3 {
-  font-family: var(--font-display);
-  font-size: clamp(1.4rem, 2.2vw, 1.75rem);
-  font-weight: 600;
-  color: var(--crema);
-  margin-bottom: 0.75rem;
-  line-height: 1.15;
-}
-
-.llegar-card p {
-  font-size: 1rem;
-  line-height: 1.65;
-  color: rgba(232, 220, 196, 0.5);
-  margin-bottom: 0;
-}
-
-.llegar-card .btn {
-  font-size: 0.8rem;
-  padding: 0.55rem 1.1rem;
-  white-space: nowrap;
-  align-self: flex-start;
-}
-
+/* ——— Botón Maps (en cards de espacios) ——— */
 .btn--maps {
-  border: 1px solid rgba(232, 220, 196, 0.25);
-  color: rgba(232, 220, 196, 0.7);
+  display: block;
+  width: 100%;
+  margin-top: 0.6rem;
+  border: 1.5px solid rgba(139, 40, 24, 0.25);
+  color: var(--bordo);
   background: transparent;
   letter-spacing: 0.06em;
   font-size: 0.72rem;
   text-transform: uppercase;
+  text-align: center;
 }
 
 .btn--maps:hover,
 .btn--maps:focus-visible {
   background: transparent;
-  border-color: var(--dorado);
-  color: var(--dorado);
+  border-color: var(--bordo);
+  color: var(--bordo);
   box-shadow: none;
+  opacity: 0.7;
   transform: none;
 }
 
